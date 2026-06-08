@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanessa & Caio · Casamento 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      color: #5a4a3a;
+      background: #fff9f5;
+      min-height: 100vh;
+    }
+
+    .hero {
+      background: linear-gradient(160deg, #f9e8e0 0%, #fdf3ee 50%, #f5e6d3 100%);
+      text-align: center;
+      padding: 4rem 1.5rem 3rem;
+      border-bottom: 1px solid #e8c9b8;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before { content: '✦'; position: absolute; top: 20px; left: 28px; font-size: 13px; color: #c9974a; opacity: 0.6; }
+    .hero::after  { content: '✦'; position: absolute; top: 20px; right: 28px; font-size: 13px; color: #c9974a; opacity: 0.6; }
+
+    .divider {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; margin: 0.7rem 0; color: #c9974a;
+      font-size: 11px; letter-spacing: 3px;
+    }
+    .divider::before, .divider::after {
+      content: ''; width: 48px; height: 0.5px;
+      background: #c9974a; opacity: 0.7;
+    }
+
+    .names {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 8vw, 3.2rem);
+      font-weight: 400; color: #7a3e2e;
+      line-height: 1.2; letter-spacing: 1px;
+    }
+    .names .amp { font-style: italic; color: #c9974a; }
+
+    .hero-date {
+      margin-top: 0.9rem; font-size: 12px;
+      letter-spacing: 5px; color: #9a7060; text-transform: uppercase;
+    }
+
+    .section {
+      padding: 2.5rem 1.4rem;
+      max-width: 620px; margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-weight: 400;
+      color: #7a3e2e; text-align: center; margin-bottom: 1.4rem;
+    }
+
+    /* Countdown */
+    .coming-soon-badge {
+      text-align: center; font-size: 11px;
+      letter-spacing: 2.5px; color: #b89070;
+      text-transform: uppercase; margin-bottom: 0.6rem;
+    }
+
+    .countdown-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 10px; margin-bottom: 0.5rem;
+    }
+
+    .countdown-box {
+      background: #fff; border: 0.5px solid #e8c9b8;
+      border-radius: 12px; padding: 1.1rem 0.5rem; text-align: center;
+    }
+
+    .countdown-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem; font-weight: 400;
+      color: #7a3e2e; line-height: 1;
+    }
+
+    .countdown-label {
+      font-size: 10px; letter-spacing: 2px;
+      color: #c9974a; text-transform: uppercase; margin-top: 5px;
+    }
+
+    /* Info cards */
+    .info-card {
+      background: #fff; border: 0.5px solid #e8c9b8;
+      border-radius: 14px; padding: 1.3rem 1.5rem;
+      margin-bottom: 1rem; display: flex;
+      align-items: flex-start; gap: 14px;
+    }
+
+    .info-emoji { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+
+    .info-label {
+      font-size: 10px; letter-spacing: 2.5px;
+      text-transform: uppercase; color: #c9974a; margin-bottom: 3px;
+    }
+
+    .info-value { font-size: 15px; color: #5a3a2a; font-weight: 400; }
+    .info-sub { font-size: 12px; color: #9a7060; margin-top: 3px; }
+
+    /* Form */
+    .form-section {
+      background: #fff; border: 0.5px solid #e8c9b8;
+      border-radius: 16px; padding: 1.8rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .form-group { margin-bottom: 1.1rem; }
+
+    .form-label {
+      display: block; font-size: 10px;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: #9a7060; margin-bottom: 6px;
+    }
+
+    .form-input {
+      width: 100%; padding: 11px 14px;
+      border: 0.5px solid #e0c4b4; border-radius: 9px;
+      font-family: 'Lato', sans-serif; font-size: 14px;
+      color: #5a3a2a; background: #fffaf7; outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-input:focus { border-color: #c9974a; }
+
+    .radio-group { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .radio-option {
+      flex: 1; min-width: 130px;
+      border: 0.5px solid #e0c4b4; border-radius: 9px;
+      padding: 11px 14px; cursor: pointer;
+      display: flex; align-items: center; gap: 9px;
+      font-size: 13px; color: #7a5a4a; background: #fffaf7;
+      transition: all 0.2s;
+    }
+
+    .radio-option.selected {
+      border-color: #c9974a; background: #fdf0e4; color: #7a3e2e;
+    }
+
+    .radio-option input { display: none; }
+
+    .submit-btn {
+      width: 100%; padding: 14px;
+      background: #7a3e2e; color: #fdf3ee; border: none;
+      border-radius: 9px; font-family: 'Playfair Display', serif;
+      font-size: 16px; letter-spacing: 1px; cursor: pointer;
+      margin-top: 0.6rem; transition: background 0.2s;
+    }
+
+    .submit-btn:hover { background: #9a4e3a; }
+    .submit-btn:disabled { background: #c4a090; cursor: not-allowed; }
+
+    .error-msg {
+      display: none; text-align: center;
+      font-size: 13px; color: #a33; margin-top: 10px;
+    }
+
+    .success-msg { display: none; text-align: center; padding: 2rem 1rem; }
+    .success-msg .heart { font-size: 2.5rem; margin-bottom: 0.8rem; }
+    .success-msg p { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: #7a3e2e; }
+    .success-msg span { font-size: 13px; color: #9a7060; display: block; margin-top: 0.4rem; }
+
+    .footer {
+      text-align: center; padding: 2rem;
+      font-size: 11px; letter-spacing: 3px;
+      color: #c9974a; border-top: 0.5px solid #e8c9b8;
+      text-transform: uppercase;
+    }
+
+    .sep { border: none; border-top: 0.5px solid #e8c9b8; margin: 0 1.4rem; }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="divider">Casamento</div>
+  <div class="names">Vanessa <span class="amp">&</span> Caio</div>
+  <div class="hero-date">Em breve · 2026</div>
+  <div class="divider" style="margin-top:1rem">✦</div>
+</div>
+
+<div class="section">
+  <div class="section-title" style="margin-top:0.3rem">Contagem regressiva</div>
+  <div class="coming-soon-badge">A data será confirmada em breve</div>
+  <div class="countdown-grid">
+    <div class="countdown-box"><div class="countdown-number" id="cd-d">—</div><div class="countdown-label">Dias</div></div>
+    <div class="countdown-box"><div class="countdown-number" id="cd-h">—</div><div class="countdown-label">Horas</div></div>
+    <div class="countdown-box"><div class="countdown-number" id="cd-m">—</div><div class="countdown-label">Min</div></div>
+    <div class="countdown-box"><div class="countdown-number" id="cd-s">—</div><div class="countdown-label">Seg</div></div>
+  </div>
+</div>
+
+<hr class="sep">
+
+<div class="section">
+  <div class="section-title">Informações do evento</div>
+  <div class="info-card">
+    <div class="info-emoji">📅</div>
+    <div>
+      <div class="info-label">Data</div>
+      <div class="info-value">A confirmar</div>
+      <div class="info-sub">Aguardem o anúncio oficial 🤍</div>
+    </div>
+  </div>
+  <div class="info-card">
+    <div class="info-emoji">🕐</div>
+    <div>
+      <div class="info-label">Horário</div>
+      <div class="info-value">A confirmar</div>
+      <div class="info-sub">Cerimônia e recepção</div>
+    </div>
+  </div>
+  <div class="info-card">
+    <div class="info-emoji">📍</div>
+    <div>
+      <div class="info-label">Local</div>
+      <div class="info-value">A confirmar</div>
+      <div class="info-sub">Endereço completo em breve</div>
+    </div>
+  </div>
+</div>
+
+<hr class="sep">
+
+<div class="section">
+  <div class="section-title">Confirme sua presença</div>
+  <div class="form-section">
+    <div id="rsvp-form">
+      <div class="form-group">
+        <label class="form-label">Seu nome completo</label>
+        <input class="form-input" type="text" id="guest-name" placeholder="Como você prefere ser chamado(a)">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Número de WhatsApp</label>
+        <input class="form-input" type="tel" id="guest-phone" placeholder="(00) 00000-0000">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Você vai comparecer?</label>
+        <div class="radio-group">
+          <label class="radio-option" id="opt-yes" onclick="selectOption('sim')">
+            <input type="radio" name="presence" value="sim">
+            💗 Sim, estarei lá!
+          </label>
+          <label class="radio-option" id="opt-no" onclick="selectOption('nao')">
+            <input type="radio" name="presence" value="nao">
+            😢 Não poderei ir
+          </label>
+        </div>
+      </div>
+      <div class="form-group" id="acomp-group" style="display:none">
+        <label class="form-label">Quantidade de acompanhantes</label>
+        <input class="form-input" type="number" id="guest-plus" min="0" max="10" placeholder="0">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Mensagem para os noivos (opcional)</label>
+        <textarea class="form-input" id="guest-msg" rows="3" style="resize:none" placeholder="Deixe um recado especial 💌"></textarea>
+      </div>
+      <button class="submit-btn" id="submit-btn" onclick="submitRSVP()">Confirmar presença</button>
+      <div class="error-msg" id="error-msg">Algo deu errado. Tente novamente.</div>
+    </div>
+    <div class="success-msg" id="success-msg">
+      <div class="heart">💍</div>
+      <p id="success-text">Obrigado, querido(a)!</p>
+      <span>Sua confirmação foi recebida. Até lá! 🤍</span>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Vanessa &amp; Caio · 2026</div>
+
+<script>
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxIfqYebXKdU92I3TwPmKRPgTdhIvYgRsg9hFAAr_W-guSH7FtZQx1Eme7wJ4OImbeM/exec';
+
+  function selectOption(val) {
+    document.getElementById('opt-yes').classList.toggle('selected', val === 'sim');
+    document.getElementById('opt-no').classList.toggle('selected', val === 'nao');
+    document.getElementById('acomp-group').style.display = val === 'sim' ? 'block' : 'none';
+  }
+
+  async function submitRSVP() {
+    const name = document.getElementById('guest-name').value.trim();
+    const phone = document.getElementById('guest-phone').value.trim();
+    const selected = document.querySelector('.radio-option.selected');
+    const errEl = document.getElementById('error-msg');
+    errEl.style.display = 'none';
+
+    if (!name) { alert('Por favor, insira seu nome.'); return; }
+    if (!selected) { alert('Por favor, confirme se irá comparecer.'); return; }
+
+    const presence = selected.querySelector('input').value;
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    const payload = {
+      nome: name,
+      telefone: phone,
+      presenca: presence === 'sim' ? 'Confirmado ✅' : 'Não vai ❌',
+      acompanhantes: document.getElementById('guest-plus').value || 0,
+      mensagem: document.getElementById('guest-msg').value.trim()
+    };
+
+    try {
+      await fetch(SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      document.getElementById('rsvp-form').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+      const firstName = name.split(' ')[0];
+      document.getElementById('success-text').textContent = presence === 'sim'
+        ? `Que alegria, ${firstName}! Te esperamos no altar. 🥂`
+        : `Obrigado por avisar, ${firstName}. Você estará em nossos corações. 🤍`;
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Confirmar presença';
+      errEl.style.display = 'block';
+    }
+  }
+</script>
+</body>
+</html>
